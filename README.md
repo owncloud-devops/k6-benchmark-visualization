@@ -2,6 +2,9 @@
 
 Adds visualization for K6 test in https://github.com/owncloud/ocis/tree/master/tests/k6.
 
+## Add dashboards
+You have to add the dasboards json to this folder `config/grafana/dashboards/load-testing` in order to make it persistent. Else it may disappear soon.
+
 ## Deployment
 
 1. prepare a server + DNS entries
