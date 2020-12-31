@@ -17,6 +17,8 @@ services:
     ports:
       - "80:80"
       - "443:443"
+    networks:
+      - k6-net
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
       - "certs:/certs"
@@ -32,7 +34,7 @@ services:
       - "traefik.http.routers.traefik-secure.middlewares=traefik-auth"
       - "traefik.http.routers.traefik-secure.tls=true"
       - "traefik.http.routers.traefik-secure.tls.certresolver=http"
-      - "traefik.http.routers.traefik-secure.service=api@internal"
+      - "traefik.http.routeimage: grafana/grafana:7.3.4rs.traefik-secure.service=api@internal"
     logging: &logging
       driver: "json-file"
       options:
@@ -42,6 +44,8 @@ services:
 
   influxdb:
     image: influxdb:1.8.3
+    networks:
+      - k6-net
     volumes:
       - ./config/influxdb/provisioning/users.sh:/docker-entrypoint-initdb.d/users.sh
       - influxdb:/var/lib/influxdb
@@ -73,6 +77,8 @@ services:
 
   grafana:
     image: grafana/grafana:7.3.6
+    networks:
+      - k6-net
     volumes:
       - grafana:/var/lib/grafana
       - ./config/grafana/dashboards/:/etc/grafana/dashboards/
@@ -108,3 +114,7 @@ volumes:
   certs:
   influxdb:
   grafana:
+
+networks:
+  k6-net:
+    external: true
