@@ -34,7 +34,7 @@ services:
       - "traefik.http.routers.traefik-secure.middlewares=traefik-auth"
       - "traefik.http.routers.traefik-secure.tls=true"
       - "traefik.http.routers.traefik-secure.tls.certresolver=http"
-      - "traefik.http.routeimage: grafana/grafana:7.3.4rs.traefik-secure.service=api@internal"
+      - "traefik.http.routers.traefik-secure.service=api@internal"
     logging: &logging
       driver: "json-file"
       options:
@@ -70,7 +70,7 @@ services:
       - "traefik.http.routers.influxdb-secure.tls=true"
       - "traefik.http.routers.influxdb-secure.tls.certresolver=http"
       - "traefik.http.routers.influxdb-secure.service=influxdb"
-      - "traefik.http.services.influxdb.loadbalancer.server.port=8068"
+      - "traefik.http.services.influxdb.loadbalancer.server.port=8086"
     logging:
       <<: *logging
     restart: always
