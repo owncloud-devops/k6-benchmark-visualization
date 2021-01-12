@@ -3,7 +3,7 @@ version: "3.7"
 
 services:
   traefik:
-    image: "traefik:v2.3"
+    image: "traefik:2.4"
     command:
       #- "--log.level=DEBUG"
       - "--certificatesResolvers.http.acme.email=${TRAEFIK_ACME_MAIL:-example@example.org}"
