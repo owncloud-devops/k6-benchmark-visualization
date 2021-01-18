@@ -48,7 +48,6 @@ services:
       - k6-net
     volumes:
       - ./config/influxdb/provisioning/users.sh:/docker-entrypoint-initdb.d/users.sh
-      - ./config/influxdb/influxdb.conf:/etc/influxdb/influxdb.conf
       - influxdb:/var/lib/influxdb
     environment:
       - INFLUXDB_DB=k6
@@ -61,6 +60,7 @@ services:
       - INFLUXDB_HTTP_BIND_ADDRESS=:8086
       - INFLUXDB_HTTP_AUTH_ENABLED=true
       - INFLUXDB_DATA_MAX_VALUES_PER_TAG=0
+      - INFLUXDB_DATA_MAX_SERIES_PER_DATABASE=0
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.influxdb.entrypoints=http"
