@@ -59,6 +59,7 @@ services:
       - INFLUXDB_K6_PASSWORD=${INFLUXDB_K6_PASSWORD:-k6}
       - INFLUXDB_HTTP_BIND_ADDRESS=:8086
       - INFLUXDB_HTTP_AUTH_ENABLED=true
+      - INFLUXDB_DATA_MAX_VALUES_PER_TAG=0
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.influxdb.entrypoints=http"
