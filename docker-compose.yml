@@ -43,7 +43,7 @@ services:
     restart: always
 
   influxdb:
-    image: influxdb:1.8.5
+    image: influxdb:2.0.6
     networks:
       - k6-net
     volumes:
