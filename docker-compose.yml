@@ -78,7 +78,7 @@ services:
     restart: always
 
   grafana:
-    image: grafana/grafana:7.5.6
+    image: grafana/grafana:7.5.7
     networks:
       - k6-net
     volumes:
