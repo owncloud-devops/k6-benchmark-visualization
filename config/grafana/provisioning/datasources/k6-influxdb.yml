@@ -1,13 +1,26 @@
 apiVersion: 1
 
+# https://grafana.com/docs/grafana/latest/datasources/influxdb/provision-influxdb/
+
 datasources:
-  - name: K6-InfluxDB
+  - name: K6-InfluxDB-Flux
     type: influxdb
     access: proxy
-    database: k6
-    user: $INFLUXDB_GF_USERNAME
     url: http://influxdb:8086
+    secureJsonData:
+      token: $GRAFANA_INFLUXDB_TOKEN
+    jsonData:
+      version: Flux
+      organization: $GRAFANA_INFLUXDB_ORG
+      defaultBucket: $GRAFANA_INFLUXDB_BUCKET
+
+  - name: K6-InfluxDB-InfluxQL
+    type: influxdb
+    access: proxy
+    url: http://influxdb:8086
+    database: $GRAFANA_INFLUXDB_BUCKET
     jsonData:
       httpMode: GET
+      httpHeaderName1: Authorization
     secureJsonData:
-      password: $INFLUXDB_GF_PASSWORD
+      httpHeaderValue1: Token $GRAFANA_INFLUXDB_TOKEN
