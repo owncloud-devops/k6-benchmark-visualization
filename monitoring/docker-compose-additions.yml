@@ -1,0 +1,17 @@
+---
+version: "3.7"
+
+services:
+  traefik:
+    networks:
+      k6-net:
+  influxdb:
+    networks:
+      k6-net:
+  grafana:
+    networks:
+      k6-net:
+
+networks:
+  k6-net:
+    external: true
