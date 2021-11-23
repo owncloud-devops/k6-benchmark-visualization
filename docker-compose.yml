@@ -3,7 +3,7 @@ version: "3.7"
 
 services:
   traefik:
-    image: traefik:v2.5
+    image: traefik:v2.5@sha256:7d0228d19042f1286765f0ef56ceba8e4e8a08ae9b45b854179cf09a9c3de633
     command:
       - "--log.level=${TRAEFIK_LOG_LEVEL:-ERROR}"
       # letsencrypt configuration
@@ -39,7 +39,7 @@ services:
     restart: always
 
   influxdb:
-    image: influxdb:2.1
+    image: influxdb:2.1@sha256:a7b09516dbeef1e903f81e2e86619b3f4552c276ce546c64558a5d365bac27f7
     volumes:
       - ./config/influxdb/provisioning/users.sh:/docker-entrypoint-initdb.d/users.sh
       - influxdb:/var/lib/influxdb2
@@ -63,7 +63,7 @@ services:
     restart: always
 
   grafana:
-    image: grafana/grafana:8.2.5
+    image: grafana/grafana:8.2.5@sha256:00568d89c4f8a2cfa0d56f0fcd875b23ec8000b743a62f442e1ee91fce9a6e24
     volumes:
       - grafana:/var/lib/grafana
       - ./config/grafana/dashboards/:/etc/grafana/dashboards/
