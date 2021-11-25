@@ -163,7 +163,9 @@
   "refresh": false,
   "schemaVersion": 30,
   "style": "dark",
-  "tags": [],
+  "tags": [
+    "home-dashboard"
+  ],
   "templating": {
     "list": [
       {
