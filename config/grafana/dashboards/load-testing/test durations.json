@@ -20,7 +20,7 @@
   "links": [],
   "panels": [
     {
-      "datasource": "K6-InfluxDB",
+      "datasource": "K6-InfluxDB-InfluxQL",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -179,7 +179,7 @@
             "$__all"
           ]
         },
-        "datasource": "K6-InfluxDB",
+        "datasource": "K6-InfluxDB-InfluxQL",
         "definition": "SHOW TAG VALUES WITH KEY = \"test_id\"",
         "description": null,
         "error": null,
@@ -207,7 +207,7 @@
             "$__all"
           ]
         },
-        "datasource": "K6-InfluxDB",
+        "datasource": "K6-InfluxDB-InfluxQL",
         "definition": "SHOW TAG VALUES WITH KEY = \"cloud_host\"",
         "description": null,
         "error": null,
