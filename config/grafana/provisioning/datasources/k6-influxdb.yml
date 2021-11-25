@@ -18,6 +18,11 @@ datasources:
     type: influxdb
     access: proxy
     url: http://influxdb:8086
+    # This database needs to be mapped to a bucket
+    # Get the ID of your bucket
+    # influx bucket list
+    # Create a mapping
+    # influx v1 dbrp create --db k6-benchmark --default --rp infinity --bucket-id <bucket id>
     database: $GRAFANA_INFLUXDB_BUCKET
     jsonData:
       httpMode: GET
