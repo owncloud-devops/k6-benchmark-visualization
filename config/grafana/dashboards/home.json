@@ -24,7 +24,7 @@
   "graphTooltip": 0,
   "id": 4,
   "links": [],
-  "liveNow": false,
+  "liveNow": true,
   "panels": [
     {
       "datasource": null,
@@ -39,14 +39,15 @@
       "id": 2,
       "limit": 10,
       "options": {
-        "folderId": 1,
         "maxItems": 20,
         "query": "",
         "showHeadings": false,
         "showRecentlyViewed": false,
         "showSearch": true,
         "showStarred": false,
-        "tags": []
+        "tags": [
+          "home-dashboard"
+        ]
       },
       "pluginVersion": "8.2.5",
       "query": "",
@@ -76,7 +77,9 @@
     "from": "now-6h",
     "to": "now"
   },
-  "timepicker": {},
+  "timepicker": {
+    "hidden": true
+  },
   "timezone": "",
   "title": "Home",
   "uid": "8gxza41Gk",
