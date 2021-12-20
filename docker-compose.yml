@@ -94,5 +94,4 @@ services:
 
 volumes:
   certs:
-  influxdb:
   grafana:
