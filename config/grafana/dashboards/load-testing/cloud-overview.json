@@ -8,19 +8,26 @@
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
         "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
         "type": "dashboard"
       }
     ]
   },
   "editable": true,
-  "gnetId": null,
+  "fiscalYearStartMonth": 0,
   "graphTooltip": 2,
-  "iteration": 1610358548743,
+  "id": 4,
+  "iteration": 1642579497808,
   "links": [],
+  "liveNow": false,
   "panels": [
     {
       "collapsed": false,
-      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -30,13 +37,6 @@
       "id": 19,
       "panels": [],
       "repeat": "CLOUD_VENDOR",
-      "scopedVars": {
-        "CLOUD_VENDOR": {
-          "selected": false,
-          "text": "ocis",
-          "value": "ocis"
-        }
-      },
       "title": "Cloud ($CLOUD_VENDOR)",
       "type": "row"
     },
@@ -45,12 +45,9 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "K6-InfluxDB-InfluxQL",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P4D1D31A5B69203FF"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -81,17 +78,10 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.6",
+      "pluginVersion": "8.3.4",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "scopedVars": {
-        "CLOUD_VENDOR": {
-          "selected": false,
-          "text": "ocis",
-          "value": "ocis"
-        }
-      },
       "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
@@ -157,9 +147,7 @@
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Virtual Users",
       "tooltip": {
         "shared": true,
@@ -168,33 +156,24 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -202,12 +181,9 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "K6-InfluxDB-InfluxQL",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P4D1D31A5B69203FF"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -239,17 +215,10 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.6",
+      "pluginVersion": "8.3.4",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "scopedVars": {
-        "CLOUD_VENDOR": {
-          "selected": false,
-          "text": "ocis",
-          "value": "ocis"
-        }
-      },
       "seriesOverrides": [],
       "spaceLength": 10,
       "stack": false,
@@ -313,9 +282,7 @@
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Requests per Second",
       "tooltip": {
         "shared": true,
@@ -324,33 +291,24 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -358,12 +316,9 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "K6-InfluxDB-InfluxQL",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P4D1D31A5B69203FF"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -394,17 +349,10 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.6",
+      "pluginVersion": "8.3.4",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "scopedVars": {
-        "CLOUD_VENDOR": {
-          "selected": false,
-          "text": "ocis",
-          "value": "ocis"
-        }
-      },
       "seriesOverrides": [
         {
           "alias": "Num Errors",
@@ -473,9 +421,7 @@
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Errors Per Second",
       "tooltip": {
         "shared": true,
@@ -484,33 +430,24 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
@@ -518,12 +455,9 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "K6-InfluxDB-InfluxQL",
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P4D1D31A5B69203FF"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -554,17 +488,10 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.3.6",
+      "pluginVersion": "8.3.4",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
-      "scopedVars": {
-        "CLOUD_VENDOR": {
-          "selected": false,
-          "text": "ocis",
-          "value": "ocis"
-        }
-      },
       "seriesOverrides": [
         {
           "alias": "Num Errors",
@@ -639,9 +566,7 @@
         }
       ],
       "thresholds": [],
-      "timeFrom": null,
       "timeRegions": [],
-      "timeShift": null,
       "title": "Checks Per Second",
       "tooltip": {
         "shared": true,
@@ -650,52 +575,45 @@
       },
       "type": "graph",
       "xaxis": {
-        "buckets": null,
         "mode": "time",
-        "name": null,
         "show": true,
         "values": []
       },
       "yaxes": [
         {
           "format": "none",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         },
         {
           "format": "short",
-          "label": null,
           "logBase": 1,
-          "max": null,
-          "min": null,
           "show": true
         }
       ],
       "yaxis": {
-        "align": false,
-        "alignLevel": null
+        "align": false
       }
     },
     {
-      "cacheTimeout": null,
-      "datasource": "K6-InfluxDB-InfluxQL",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P4D1D31A5B69203FF"
+      },
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "decimals": 2,
           "mappings": [
             {
-              "id": 0,
-              "op": "=",
-              "text": "N/A",
-              "type": 1,
-              "value": "null"
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
             }
           ],
-          "nullValueMode": "connected",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -720,7 +638,6 @@
         "y": 8
       },
       "id": 11,
-      "interval": null,
       "links": [],
       "maxDataPoints": 100,
       "options": {
@@ -737,14 +654,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.6",
-      "scopedVars": {
-        "CLOUD_VENDOR": {
-          "selected": false,
-          "text": "ocis",
-          "value": "ocis"
-        }
-      },
+      "pluginVersion": "8.3.4",
       "targets": [
         {
           "dsType": "influxdb",
@@ -808,22 +718,24 @@
       "type": "stat"
     },
     {
-      "cacheTimeout": null,
-      "datasource": "K6-InfluxDB-InfluxQL",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P4D1D31A5B69203FF"
+      },
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "decimals": 2,
           "mappings": [
             {
-              "id": 0,
-              "op": "=",
-              "text": "N/A",
-              "type": 1,
-              "value": "null"
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
             }
           ],
-          "nullValueMode": "connected",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -848,7 +760,6 @@
         "y": 8
       },
       "id": 14,
-      "interval": null,
       "links": [],
       "maxDataPoints": 100,
       "options": {
@@ -865,14 +776,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.6",
-      "scopedVars": {
-        "CLOUD_VENDOR": {
-          "selected": false,
-          "text": "ocis",
-          "value": "ocis"
-        }
-      },
+      "pluginVersion": "8.3.4",
       "targets": [
         {
           "dsType": "influxdb",
@@ -936,22 +840,24 @@
       "type": "stat"
     },
     {
-      "cacheTimeout": null,
-      "datasource": "K6-InfluxDB-InfluxQL",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P4D1D31A5B69203FF"
+      },
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "decimals": 2,
           "mappings": [
             {
-              "id": 0,
-              "op": "=",
-              "text": "N/A",
-              "type": 1,
-              "value": "null"
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
             }
           ],
-          "nullValueMode": "connected",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -976,7 +882,6 @@
         "y": 8
       },
       "id": 15,
-      "interval": null,
       "links": [],
       "maxDataPoints": 100,
       "options": {
@@ -993,14 +898,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.6",
-      "scopedVars": {
-        "CLOUD_VENDOR": {
-          "selected": false,
-          "text": "ocis",
-          "value": "ocis"
-        }
-      },
+      "pluginVersion": "8.3.4",
       "targets": [
         {
           "dsType": "influxdb",
@@ -1064,22 +962,24 @@
       "type": "stat"
     },
     {
-      "cacheTimeout": null,
-      "datasource": "K6-InfluxDB-InfluxQL",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P4D1D31A5B69203FF"
+      },
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "decimals": 2,
           "mappings": [
             {
-              "id": 0,
-              "op": "=",
-              "text": "N/A",
-              "type": 1,
-              "value": "null"
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
             }
           ],
-          "nullValueMode": "connected",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -1104,7 +1004,6 @@
         "y": 8
       },
       "id": 16,
-      "interval": null,
       "links": [],
       "maxDataPoints": 100,
       "options": {
@@ -1121,14 +1020,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.6",
-      "scopedVars": {
-        "CLOUD_VENDOR": {
-          "selected": false,
-          "text": "ocis",
-          "value": "ocis"
-        }
-      },
+      "pluginVersion": "8.3.4",
       "targets": [
         {
           "dsType": "influxdb",
@@ -1192,22 +1084,24 @@
       "type": "stat"
     },
     {
-      "cacheTimeout": null,
-      "datasource": "K6-InfluxDB-InfluxQL",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P4D1D31A5B69203FF"
+      },
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "decimals": 2,
           "mappings": [
             {
-              "id": 0,
-              "op": "=",
-              "text": "N/A",
-              "type": 1,
-              "value": "null"
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
             }
           ],
-          "nullValueMode": "connected",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -1232,7 +1126,6 @@
         "y": 8
       },
       "id": 12,
-      "interval": null,
       "links": [],
       "maxDataPoints": 100,
       "options": {
@@ -1249,14 +1142,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.6",
-      "scopedVars": {
-        "CLOUD_VENDOR": {
-          "selected": false,
-          "text": "ocis",
-          "value": "ocis"
-        }
-      },
+      "pluginVersion": "8.3.4",
       "targets": [
         {
           "dsType": "influxdb",
@@ -1322,22 +1208,24 @@
       "type": "stat"
     },
     {
-      "cacheTimeout": null,
-      "datasource": "K6-InfluxDB-InfluxQL",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P4D1D31A5B69203FF"
+      },
       "fieldConfig": {
         "defaults": {
-          "custom": {},
           "decimals": 2,
           "mappings": [
             {
-              "id": 0,
-              "op": "=",
-              "text": "N/A",
-              "type": 1,
-              "value": "null"
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
             }
           ],
-          "nullValueMode": "connected",
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -1362,7 +1250,6 @@
         "y": 8
       },
       "id": 13,
-      "interval": null,
       "links": [],
       "maxDataPoints": 100,
       "options": {
@@ -1379,14 +1266,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.3.6",
-      "scopedVars": {
-        "CLOUD_VENDOR": {
-          "selected": false,
-          "text": "ocis",
-          "value": "ocis"
-        }
-      },
+      "pluginVersion": "8.3.4",
       "targets": [
         {
           "dsType": "influxdb",
@@ -1453,7 +1333,7 @@
     }
   ],
   "refresh": false,
-  "schemaVersion": 26,
+  "schemaVersion": 34,
   "style": "dark",
   "tags": [
     "home-dashboard"
@@ -1461,9 +1341,8 @@
   "templating": {
     "list": [
       {
-        "allValue": null,
         "current": {
-          "selected": false,
+          "selected": true,
           "text": [
             "All"
           ],
@@ -1471,9 +1350,11 @@
             "$__all"
           ]
         },
-        "datasource": "K6-InfluxDB-InfluxQL",
+        "datasource": {
+          "type": "influxdb",
+          "uid": "P4D1D31A5B69203FF"
+        },
         "definition": "",
-        "error": null,
         "hide": 0,
         "includeAll": true,
         "label": "Cloud",
@@ -1486,21 +1367,21 @@
         "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",
-        "tags": [],
         "tagsQuery": "",
         "type": "query",
         "useTags": false
       },
       {
-        "allValue": null,
         "current": {
-          "selected": true,
-          "text": "localhost",
-          "value": "localhost"
+          "selected": false,
+          "text": "default",
+          "value": "default"
         },
-        "datasource": "K6-InfluxDB-InfluxQL",
+        "datasource": {
+          "type": "influxdb",
+          "uid": "P4D1D31A5B69203FF"
+        },
         "definition": "",
-        "error": null,
         "hide": 0,
         "includeAll": false,
         "label": "ID",
@@ -1513,21 +1394,21 @@
         "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",
-        "tags": [],
         "tagsQuery": "",
         "type": "query",
         "useTags": false
       },
       {
-        "allValue": null,
         "current": {
           "selected": false,
           "text": "most-used-sizes-upload",
           "value": "most-used-sizes-upload"
         },
-        "datasource": "K6-InfluxDB-InfluxQL",
+        "datasource": {
+          "type": "influxdb",
+          "uid": "P4D1D31A5B69203FF"
+        },
         "definition": "",
-        "error": null,
         "hide": 0,
         "includeAll": false,
         "label": "Test",
@@ -1540,21 +1421,21 @@
         "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",
-        "tags": [],
         "tagsQuery": "",
         "type": "query",
         "useTags": false
       },
       {
-        "allValue": null,
         "current": {
           "selected": false,
           "text": "cloud_default_play_dav_upload_trend",
           "value": "cloud_default_play_dav_upload_trend"
         },
-        "datasource": "K6-InfluxDB-InfluxQL",
+        "datasource": {
+          "type": "influxdb",
+          "uid": "P4D1D31A5B69203FF"
+        },
         "definition": "",
-        "error": null,
         "hide": 0,
         "includeAll": false,
         "label": "Measurement",
@@ -1567,7 +1448,6 @@
         "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",
-        "tags": [],
         "tagsQuery": "",
         "type": "query",
         "useTags": false
@@ -1575,7 +1455,7 @@
     ]
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-24h",
     "to": "now"
   },
   "timepicker": {
@@ -1606,5 +1486,6 @@
   "timezone": "browser",
   "title": "Cloud overview",
   "uid": "nVxAxVJGk",
-  "version": 5
+  "version": 1,
+  "weekStart": ""
 }

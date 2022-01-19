@@ -20,14 +20,12 @@
   },
   "editable": true,
   "fiscalYearStartMonth": 0,
-  "gnetId": null,
   "graphTooltip": 0,
   "id": 4,
   "links": [],
   "liveNow": true,
   "panels": [
     {
-      "datasource": null,
       "folderId": 2,
       "gridPos": {
         "h": 19,
@@ -39,6 +37,7 @@
       "id": 2,
       "limit": 10,
       "options": {
+        "folderId": 2,
         "maxItems": 20,
         "query": "",
         "showHeadings": false,
@@ -49,7 +48,7 @@
           "home-dashboard"
         ]
       },
-      "pluginVersion": "8.2.5",
+      "pluginVersion": "8.3.4",
       "query": "",
       "recent": false,
       "search": true,
@@ -61,13 +60,11 @@
           "refId": "A"
         }
       ],
-      "timeFrom": null,
-      "timeShift": null,
       "title": "Dashboards",
       "type": "dashlist"
     }
   ],
-  "schemaVersion": 32,
+  "schemaVersion": 34,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -83,5 +80,6 @@
   "timezone": "",
   "title": "Home",
   "uid": "8gxza41Gk",
-  "version": 1
+  "version": 1,
+  "weekStart": ""
 }
