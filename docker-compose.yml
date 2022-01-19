@@ -28,7 +28,7 @@ services:
       - "certs:/certs"
     labels:
       - "traefik.enable=${TRAEFIK_DASHBOARD:-false}"
-      - "traefik.http.middlewares.traefik-auth.basicauth.users=${TRAEFIK_BASIC_AUTH_USERS:-admin:$apr1$4vqie50r$YQAmQdtmz5n9rEALhxJ4l.}" # defaults to admin:admin
+      - "traefik.http.middlewares.traefik-auth.basicauth.users=${TRAEFIK_BASIC_AUTH_USERS:-admin:$$apr1$$4vqie50r$$YQAmQdtmz5n9rEALhxJ4l.}" # defaults to admin:admin
       - "traefik.http.routers.traefik.entrypoints=https"
       - "traefik.http.routers.traefik.rule=Host(`${TRAEFIK_DOMAIN:-traefik.owncloud.test}`)"
       - "traefik.http.routers.traefik.middlewares=traefik-auth"
@@ -71,7 +71,7 @@ services:
     environment:
       - GF_SERVER_DOMAIN=${GRAFANA_DOMAIN:-grafana.owncloud.test}
       - GF_SERVER_ROOT_URL=https://${GRAFANA_DOMAIN:-grafana.owncloud.test}
-      - GF_AUTH_BASIC_ENABLED=false
+      - GF_AUTH_BASIC_ENABLED=true # authentication for the provisioning sidecar
       - GF_SECURITY_ADMIN_USER=${GRAFANA_ADMIN_USER:-admin}
       - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD:-admin}
       - GF_AUTH_ANONYMOUS_ENABLED=true
@@ -91,6 +91,20 @@ services:
     logging:
       driver: "local"
     restart: always
+
+  grafana-provisioning-sidecar:
+    image: alpine
+    command: sh /provisioning/provision.bash
+    volumes:
+      - ./config/grafana/manual-provisioning/:/provisioning
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_ADMIN_USER:-admin}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD:-admin}
+    logging:
+      driver: "local"
+    restart: "no" # run only once or on request
+
+
 
 volumes:
   certs:
