@@ -8,19 +8,29 @@
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
         "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
         "type": "dashboard"
       }
     ]
   },
   "editable": true,
-  "gnetId": null,
+  "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 4,
-  "iteration": 1637825222652,
+  "id": 5,
+  "iteration": 1642579663458,
   "links": [],
+  "liveNow": false,
   "panels": [
     {
-      "datasource": "K6-InfluxDB-InfluxQL",
+      "datasource": {
+        "type": "influxdb",
+        "uid": "P4D1D31A5B69203FF"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -161,7 +171,7 @@
     }
   ],
   "refresh": false,
-  "schemaVersion": 30,
+  "schemaVersion": 34,
   "style": "dark",
   "tags": [
     "home-dashboard"
@@ -169,7 +179,6 @@
   "templating": {
     "list": [
       {
-        "allValue": null,
         "current": {
           "selected": true,
           "text": [
@@ -179,13 +188,13 @@
             "$__all"
           ]
         },
-        "datasource": "K6-InfluxDB-InfluxQL",
+        "datasource": {
+          "type": "influxdb",
+          "uid": "P4D1D31A5B69203FF"
+        },
         "definition": "SHOW TAG VALUES WITH KEY = \"test_id\"",
-        "description": null,
-        "error": null,
         "hide": 0,
         "includeAll": true,
-        "label": null,
         "multi": true,
         "name": "test_id",
         "options": [],
@@ -197,7 +206,6 @@
         "type": "query"
       },
       {
-        "allValue": null,
         "current": {
           "selected": true,
           "text": [
@@ -207,13 +215,13 @@
             "$__all"
           ]
         },
-        "datasource": "K6-InfluxDB-InfluxQL",
+        "datasource": {
+          "type": "influxdb",
+          "uid": "P4D1D31A5B69203FF"
+        },
         "definition": "SHOW TAG VALUES WITH KEY = \"cloud_host\"",
-        "description": null,
-        "error": null,
         "hide": 0,
         "includeAll": true,
-        "label": null,
         "multi": true,
         "name": "host",
         "options": [],
@@ -234,5 +242,6 @@
   "timezone": "",
   "title": "test durations",
   "uid": "8IV_hHt7k",
-  "version": 15
+  "version": 2,
+  "weekStart": ""
 }
