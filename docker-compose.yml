@@ -3,7 +3,7 @@ version: "3.7"
 
 services:
   traefik:
-    image: traefik:v2.6@sha256:146ce13c95c17a579b38e670187aee573172dc2c7fecec1555fbede0005ad72b
+    image: traefik:v2.6@sha256:a94f8efcbdccb28e591fc04a3dce0cf5947e1b564c6d471a5945b09f130dfd86
     command:
       - "--log.level=${TRAEFIK_LOG_LEVEL:-ERROR}"
       # letsencrypt configuration
@@ -28,7 +28,7 @@ services:
       - "certs:/certs"
     labels:
       - "traefik.enable=${TRAEFIK_DASHBOARD:-false}"
-      - "traefik.http.middlewares.traefik-auth.basicauth.users=${TRAEFIK_BASIC_AUTH_USERS:-admin:$$apr1$$4vqie50r$$YQAmQdtmz5n9rEALhxJ4l.}" # defaults to admin:admin
+      - "traefik.http.middlewares.traefik-auth.basicauth.users=${TRAEFIK_BASIC_AUTH_USERS:-admin:$apr1$4vqie50r$YQAmQdtmz5n9rEALhxJ4l.}" # defaults to admin:admin
       - "traefik.http.routers.traefik.entrypoints=https"
       - "traefik.http.routers.traefik.rule=Host(`${TRAEFIK_DOMAIN:-traefik.owncloud.test}`)"
       - "traefik.http.routers.traefik.middlewares=traefik-auth"
@@ -39,7 +39,7 @@ services:
     restart: always
 
   influxdb:
-    image: influxdb:2.1@sha256:1a48c5c4b957b795cdf381bcf91e0d7de9edea2d9be984afbd6e4922e2e24484
+    image: influxdb:2.1@sha256:799aace0d410205ee8f37041acc6072ca4d5fff643119727a140d213f8ae44c0
     volumes:
       - ./config/influxdb/provisioning/users.sh:/docker-entrypoint-initdb.d/users.sh
       - /mnt/k6-benchmark-visualization/influxdb:/var/lib/influxdb2
@@ -63,7 +63,7 @@ services:
     restart: always
 
   grafana:
-    image: grafana/grafana:8.3.4@sha256:cf81d2c753c8d14cf0324d881e49f42d400347d256e473856e1bda02eb520a99
+    image: grafana/grafana:8.4.4@sha256:688013c1dc30e9f9c8fc77f1ce328994f47923094b627a99ff5a15c427e8dd8f
     volumes:
       - grafana:/var/lib/grafana
       - ./config/grafana/dashboards/:/etc/grafana/dashboards/
@@ -71,7 +71,7 @@ services:
     environment:
       - GF_SERVER_DOMAIN=${GRAFANA_DOMAIN:-grafana.owncloud.test}
       - GF_SERVER_ROOT_URL=https://${GRAFANA_DOMAIN:-grafana.owncloud.test}
-      - GF_AUTH_BASIC_ENABLED=true # authentication for the provisioning sidecar
+      - GF_AUTH_BASIC_ENABLED=false
       - GF_SECURITY_ADMIN_USER=${GRAFANA_ADMIN_USER:-admin}
       - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD:-admin}
       - GF_AUTH_ANONYMOUS_ENABLED=true
@@ -91,20 +91,6 @@ services:
     logging:
       driver: "local"
     restart: always
-
-  grafana-provisioning-sidecar:
-    image: alpine
-    command: sh /provisioning/provision.bash
-    volumes:
-      - ./config/grafana/manual-provisioning/:/provisioning
-    environment:
-      - GF_SECURITY_ADMIN_USER=${GRAFANA_ADMIN_USER:-admin}
-      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD:-admin}
-    logging:
-      driver: "local"
-    restart: "no" # run only once or on request
-
-
 
 volumes:
   certs:
