@@ -39,7 +39,7 @@ services:
     restart: always
 
   influxdb:
-    image: influxdb:2.1@sha256:2f6855f9556b71dbcae60e1065f4710559f14e1cd94c7c3ee9768b64c4e1e4c5
+    image: influxdb:2.2@sha256:7b6e0d14ac7be2160805ad94437340ad873dded140b0c349d91d26b97189c806
     volumes:
       - ./config/influxdb/provisioning/users.sh:/docker-entrypoint-initdb.d/users.sh
       - /mnt/k6-benchmark-visualization/influxdb:/var/lib/influxdb2
