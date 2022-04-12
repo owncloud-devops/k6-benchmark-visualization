@@ -63,7 +63,7 @@ services:
     restart: always
 
   grafana:
-    image: grafana/grafana:8.4.5@sha256:0cd62c984d91d9d950313fed1fd12364e719f9acae7c894e62f1b4c824764cdb
+    image: grafana/grafana:8.4.6@sha256:ddc19d30cb86eb300ed64ecf1aa5e71af5381696297fab55d26a02e3bf0f05cd
     volumes:
       - grafana:/var/lib/grafana
       - ./config/grafana/dashboards/:/etc/grafana/dashboards/
