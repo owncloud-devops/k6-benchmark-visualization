@@ -23,6 +23,7 @@ services:
     ports:
       - "80:80"
       - "443:443"
+      - "8080:8080"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
       - "certs:/certs"
@@ -34,6 +35,7 @@ services:
       - "traefik.http.routers.traefik.middlewares=traefik-auth"
       - "traefik.http.routers.traefik.tls.certresolver=http"
       - "traefik.http.routers.traefik.service=api@internal"
+      - "traefik.http.services.traefik.loadbalancer.server.port=8080"
     logging:
       driver: "local"
     restart: always
@@ -57,10 +59,12 @@ services:
       - "traefik.http.routers.influxdb.rule=Host(`${INFLUXDB_DOMAIN:-influxdb.owncloud.test}`)"
       - "traefik.http.routers.influxdb.tls.certresolver=http"
       - "traefik.http.routers.influxdb.service=influxdb"
-      - "traefik.http.services.influxdb.loadbalancer.server.port=8086"
+      - "traefik.http.services.influxdb.loadbalancer.server.port=8087"
     logging:
       driver: "local"
     restart: always
+    depends_on:
+      - traefik
 
   grafana:
     image: grafana/grafana:10.1.0@sha256:047c1c5aa6fef257b6c2516f95c8fcd9f28707c201c6413dd78328b6cbedff6f
@@ -91,6 +95,8 @@ services:
     logging:
       driver: "local"
     restart: always
+    depends_on:
+      - influxdb
 
 volumes:
   certs:
