@@ -3,7 +3,7 @@ version: "3.7"
 
 services:
   traefik:
-    image: traefik:v3.0@sha256:8852303b7235802671d0c0cc99840abedd99e31a125ccb9450094b62844eb32d
+    image: traefik:v3.7@sha256:0f6150202bc1fed72a7bd2107460eaa510e5b8a905f3fdb5b84f2c8619c33368
     command:
       - "--log.level=${TRAEFIK_LOG_LEVEL:-ERROR}"
       # letsencrypt configuration
